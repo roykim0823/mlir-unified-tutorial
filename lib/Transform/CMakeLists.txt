@@ -1,0 +1,6 @@
+add_subdirectory(Affine)
+add_subdirectory(Arith)
+add_subdirectory(TinyTransform)
+if(ENABLE_SOLVER)
+  add_subdirectory(Noisy)
+endif()

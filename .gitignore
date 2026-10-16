@@ -1,0 +1,87 @@
+# ---------------------------------------------------------------------------
+# Build trees
+# ---------------------------------------------------------------------------
+# Top-level CMake build of lib/, tools/ and the or-tools solver build.
+/build/
+/build-solver/
+cmake-build-*/
+# Per-example scratch dirs written by the chapter build.sh scripts
+# (e.g. part1-using-mlir/ch03-.../examples/01-llvm-modules/build/).
+build/
+
+# CMake / clangd generated files
+CMakeCache.txt
+CMakeFiles/
+cmake_install.cmake
+CTestTestfile.cmake
+compile_commands.json
+tablegen_compile_commands.yml
+.cache/
+
+# ---------------------------------------------------------------------------
+# Compiled artifacts (the .ll / .mlir inputs are hand-written sources; keep them)
+# ---------------------------------------------------------------------------
+*.o
+*.obj
+*.a
+*.lib
+*.so
+*.so.*
+*.dylib
+*.dll
+*.exe
+*.out
+*.bc
+*.cubin
+*.fatbin
+
+# ---------------------------------------------------------------------------
+# Python
+# ---------------------------------------------------------------------------
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+*.egg
+.venv/
+venv/
+.env/
+dist/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.ipynb_checkpoints/
+
+# ---------------------------------------------------------------------------
+# lit / FileCheck test runs
+# ---------------------------------------------------------------------------
+Output/
+.lit_test_times.txt
+
+# ---------------------------------------------------------------------------
+# Part 6: model exports and weights
+# ---------------------------------------------------------------------------
+# The full gpt2 exports are ~950 MB each; only the stripped snapshot
+# (gpt2_linalg_stripped.mlir) is checked in. Regenerate the full files with
+# part6-end-to-end-ml/generate_snapshots.sh.
+part6-end-to-end-ml/src/gpt2/gpt2_torch.mlir
+part6-end-to-end-ml/src/gpt2/gpt2_linalg.mlir
+# Downloaded / exported model weights
+*.safetensors
+*.pt
+*.pth
+*.ckpt
+*.onnx
+*.npy
+*.npz
+*.h5
+
+# ---------------------------------------------------------------------------
+# Editors and OS
+# ---------------------------------------------------------------------------
+.DS_Store
+.vscode/
+.idea/
+*.swp
+*.swo
+*~

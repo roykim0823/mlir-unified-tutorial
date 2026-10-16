@@ -1,0 +1,18 @@
+# Part 6 Python environment (SEPARATE from the repo root's requirements.txt).
+#
+# torch-mlir publishes nightly wheels for Linux only (x86_64 / aarch64):
+#   https://github.com/llvm/torch-mlir-release
+# On macOS, run the import scripts in a Linux container instead — see
+# generate_snapshots.sh. NOTE: the torch-mlir wheel does NOT declare torch
+# as a dependency, so torch must be listed explicitly; the +cpu build comes
+# from the PyTorch CPU wheel index.
+#
+# Pins verified 2026-07-28 (torch-mlir 20260531.828 + torch 2.13.0). If the
+# torch-mlir pin has aged off the release page, take the newest wheel there
+# and a torch of the same vintage.
+--pre
+-f https://github.com/llvm/torch-mlir-release/releases/expanded_assets/dev-wheels
+--extra-index-url https://download.pytorch.org/whl/cpu
+torch-mlir==20260531.828
+torch==2.13.0+cpu
+transformers

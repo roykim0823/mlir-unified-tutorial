@@ -1,0 +1,25 @@
+import torch
+import torch.nn as nn
+
+torch.manual_seed(41)
+
+
+# The classic MNIST MLP: flatten the 28x28 image, three linear layers with
+# ReLU in between, ten logits out. (Weights are random — the point here is
+# the compilation pipeline, not accuracy.)
+class MnistNetwork(nn.Module):
+    def __init__(self):
+        super().__init__()
+        self.flatten = nn.Flatten()
+        self.linear_relu_stack = nn.Sequential(
+            nn.Linear(28 * 28, 512),
+            nn.ReLU(),
+            nn.Linear(512, 512),
+            nn.ReLU(),
+            nn.Linear(512, 10),
+        )
+
+    def forward(self, x):
+        x = self.flatten(x)
+        logits = self.linear_relu_stack(x)
+        return logits

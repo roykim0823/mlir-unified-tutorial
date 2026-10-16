@@ -1,0 +1,5 @@
+add_subdirectory(Poly)
+add_subdirectory(Tiny)
+add_subdirectory(TinyLoop)
+add_subdirectory(TinyTile)
+add_subdirectory(Noisy)
